@@ -6,20 +6,10 @@ Spark is setup as a cluster based service which allows users to submit workloads
 # 1. History
 Originally developed at the University of California, Berkeley's AMPLab in 2009 under a BSD license, the Spark codebase was later donated to the Apache Software Foundation in 2013 under the Apache 2.0 license. There have been several major iterations released with the most recent version being 3.1.
 
-# 2. Installation
+# 2. Relevant Notebooks
+The following notebooks will get you up and running with Apache Spark:
 
-## 2.1. Install Java
-According to the documentation Apark 3.1.1 requires Java 8/11. In the case of the openjdk, we will see a version of 1.8.x coresponding to Oracle version 8.
-
-## 2.2. Install Programming Language
-Accodring to the documentation Spark has the following compatabilities for it's landuage bindings:
-
-    Scala 2.12
-    Python 3.6+
-    R 3.5+
-
-Insure a compatable version is installed. In our case we are using python.
-
-# 3. Relevant Notebooks
 - [Install Apache Spark Prerequisites](Install%20Apache%20Spark%20Prerequisites.ipynb)
+- [Spark Pi - The Hello World Example For Apache spark](Spark%20Pi%20-%20The%20Hello%20World%20Example%20For%20Apache%20spark.ipynb)
 - [Running Apache Spark Locally](Running%20Apache%20Spark%20Locally.ipynb)
+- [Running Apache Spark On Kubernetes](Running%20Apache%20Spark%20On%20Kubernetes.ipynb)
