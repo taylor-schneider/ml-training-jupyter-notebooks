@@ -7,7 +7,8 @@ I suggest reading the notebooks in the following order:
 
 1. Histograms and Probability
 2. Quantiles
-3. Intro to Generalized Lambda Distribution (GLD)
-4. Fitting GLD To Sample Data
+3. Normalization
+4. Intro to Generalized Lambda Distribution (GLD)
+5. Fitting GLD To Sample Data
 
 Once we have the basic statistical explanations we can look at using machine learning to do more advanced discovery work. For example cluster analysis etc.
