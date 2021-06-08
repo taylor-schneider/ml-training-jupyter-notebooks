@@ -1,6 +1,5 @@
 import pandas
 import numpy
-import matplotlib.pyplot as pyplot
 
 def calculate_velocity_and_acceleration(df, column_name):
     n = df[column_name].shape[0]
@@ -36,6 +35,16 @@ def same_signs(a, b):
     else:
         return False
 
+def same_space(a, b):
+
+	if a[0] <= b[0] and a[1] >= b[1]:
+		return True
+		
+	if a[0] >= a[0] and b[1] <= a[1]:
+		return True
+	
+	return False
+		
 def calculate_iflection_point(df, column_name, debug=False):    
 
     n = df[column_name].shape[0]
@@ -84,33 +93,3 @@ def convert_date_string_to_date(input_string):
     result = numpy.datetime64(input_string, 'D')
 
     return result
-
-def plot_dataframe(dataframe1, x_axis_name, y_axis_name, scatter=True, line=False):
-    
-    # Create a new graph object
-    figure, axis = pyplot.subplots(nrows=1,ncols=1,figsize=(12,6))
-
-    # Get the dimensions of the graph area
-    #xmin = dataframe1[x_axis_name].min()
-    #xmax = dataframe1[x_axis_name].max()
-    #ymin = dataframe1[y_axis_name].min()
-    #ymax = dataframe1[y_axis_name].max()
- 
-    #axis.set_xlim([xmin,xmax])
-    #axis.set_ylim([ymin,ymax])
-
-    # Graph a scatter plot on the graph we created
-    if scatter:
-        axis.scatter(dataframe1[x_axis_name], dataframe1[y_axis_name])
-    
-    if line:
-        axis.plot(dataframe1[x_axis_name], dataframe1[y_axis_name], color="green")
-    
-    # Beautify the x-labels
-    pyplot.gcf().autofmt_xdate()
-    
-    return figure, axis
-
-
-	
-	
