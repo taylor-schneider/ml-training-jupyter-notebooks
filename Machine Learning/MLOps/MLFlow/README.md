@@ -1,5 +1,15 @@
 # Overview
 
+This folder contains several notebooks related to the use of MLFlow which should be read and executed in the following order:
+
+1. [MLFlow Trcking API](MLFlow%20Tracking%20Api.ipynb)
+2. [MLFlow Model Registry API](MLFLow%20MModel%20Registry%20API.ipynb)
+3. MLFlow Projects
+
+**Before going through the notebooks it is reccomended to digest the foundational material on this page!**
+
+# 1. MLFlow Introduction
+
 According to the [homepage](https://mlflow.org/) MLFlow is "An open source platform for the machine learning lifecycle". Its intended purpose is to provide a single tool which allows data scientists to address ML specific components of the Software Development Life cycle (SDLC) including: experimentation, reproducibility, model deployment, and a model storage in a centralizing model registry.
 
 The project breaks down into four sub-components:
@@ -15,7 +25,7 @@ We will see that each sub-component has a coresponding UI and API. The documenta
 
 The project page boasts integrations with many big name players, providers, and technology stacks and sees contributions coming from many big names in the space.
 
-# 1. MLFLow Object Model
+# 2. MLFLow Object Model
 
 An **MLFlow Model** is an abstraction layer provided to unify the handling and packaging of machine learning models. This abstraction layer allows MLFlow to handle multiple types of models from multiple providers and technology stacks without concern. As we saw in the [MLFlow Tracking API Notebook](MLFLlow%20Tracking%20API.ipynb) we have the ability to experiment and log results to the Tracking API. An MLFlow model is thus created when we call the *log_model()* function. In additional to providing a generic interface for various model types, the MLFlow Model also provides a standard [packaging (storage) format](https://mlflow.org/docs/latest/models.html). The packaging format is a directory. Each MLflow Model is a directory containing arbitrary files. There are several standard files that appear in this directory including the MLmodel file (a yaml file defining the flavors the model supports), a model.pkl (a pickel file containing a serialized version of the model), and a conda.yaml file (a yaml file defining the dependencies for the conda environment to host the model). We will see that different files are included for different flavors.
 
@@ -29,7 +39,9 @@ MLFlow provides **Model Versions** as a way to track changes and lineage between
 
 To facilitate model lifecycle management, MLFLow provides **Model Stages**. The model stages are logical constructuct representing different milestones along the lifecycle. MLflow provides predefined stages for common use-cases such as Staging, Production or Archived. You can transition a model version from one stage to another stage. Each distinct model version can be assigned one stage at any given time. We will see that these model stages provide an anchor point for controlled model deployments. This allows developers to deploy new versions of a model into a Development stage, without impacting the model in Production.
 
-# 2. MLFlow Architecture
+An **MLflow Project** is another packaging format. While the MLFlow model allows packaging a model, an MLFlow Project allows packaging more generic data science code (for example the act of training and testing a model). This feature is intended to allow ML code to be deployed in a reusable and reproducible way (either by data scientists or automated tools). Each project is simply a directory of files, or a Git repository, containing your code. We will see that the system tries to be intelegent and make inferences about the project based primarily on conventions. Each project has the following properties: a name, a set of entrypoints (commands that run the code in the project), an environment definition explaining the software dependencies etc. related to the project (conda environment, docker container, and more). It is possible to chain together projects into **Workflows**. The API/CLI supports submitting projects to execution environments like kubernetes. See the [documentation](https://mlflow.org/docs/latest/projects.html) for more details.
+
+# 3. MLFlow Architecture
 
 Before we get started with MLFlow, It is important to understand the architectural components. As we will see in section 2, there are a number of ways to deploy the MLFlow. Before we choose a method, it is important to understand that an MLFlow deployment consists of the following components:
 - Backend - Persists MLflow entities (runs, parameters, metrics, tags, notes, metadata, etc)
@@ -37,7 +49,7 @@ Before we get started with MLFlow, It is important to understand the architectur
 - REST API - The optional component exposing web based MLFlow API
 - Tracking UI - The Web UI for lets you visualize, search and compare runs, as well as download run artifacts or metadata for analysis in other tools, and register or tag models.
 
-# 3. Deployment Options
+# 4. Deployment Options
 
 Reading through the [documentation](https://mlflow.org/docs/latest/tracking.html), assuming you are deploying your own MLFlow installation, you have the following documented options:
 
@@ -80,4 +92,4 @@ Reading through the [documentation](https://mlflow.org/docs/latest/tracking.html
 
 Databricks and AWS also provide MLFlow deployments that data scientists can leverage.
 
-For our purposes, we will keep it simple and go with scenario 1 and host our own UI.
+For our purposes, we will keep it simple and go with scenario 2 as this is the simplest deployment option that enables all the features.

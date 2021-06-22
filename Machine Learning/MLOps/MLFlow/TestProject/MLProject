@@ -1,0 +1,11 @@
+name: My First MLFlow Project
+
+docker_env:
+  image:  tschneider/ml-python
+
+entry_points:
+  train_my_model:
+    parameters:
+      data_file: ..\..\..\..\Example Data Sets\nasdaq_2019.csv
+      ticker: AABA
+    command: "python3 train.py --data-file {data_file} --ticker {ticker}"
