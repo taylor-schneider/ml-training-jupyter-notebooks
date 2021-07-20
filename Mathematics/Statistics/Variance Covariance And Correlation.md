@@ -165,7 +165,7 @@ $$
 
 You will notice that the variances appear alongthe diagonal while the covariances appear in the non diagonals.
 
-# 3 Covariance
+# 3. Covariance
 Covariance is an attempt to explain variance in two dimensions or for two variables. Given two variables X and Y, the covariance multiplies the deviation of X by the deviation of Y. In a two dimentional space this would resemble the following:
 
 <center><img src="images/deviation_two_dimension.png" alt="Two Dimensional Deviation" style="width: 400px;"/></center>
@@ -184,9 +184,17 @@ $$ = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] - \mathbb{E}[X]\mathbb{E}[Y] + 
 
 $$ = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] $$
 
+## 3.1. Univariate Case
+
 If we expand the Expectation operator $\mathbb{E}$ for a discrete random uniform random variable, with $p=\frac{1}{n}$, we would have:
 
 $$ Cov(X,Y) = \sigma_{X,Y} := \frac{1}{n}\sum(x_i-\mu_X)(y_i - \mu_Y) $$
+
+## 3.2. Multiavariate Matrix Algebra
+
+Matrix algebra allows us to calculate all the covariances between a set of variables simulatneously:
+
+$$ \Sigma = \frac{1}{n} (X - \mu_X)(X - \mu_X)^T $$
 
 # 4. Correlation
 ## 4.1. Types of Correlation

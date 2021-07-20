@@ -1,11 +1,14 @@
 # Overview
-In this document we establish the mathematical framework for single value decomposition.
+In this document we establish the mathematical framework for single value decomposition, eigen-decomposition, eigenvalues, and eigenvectors.
+
+
+
+# 1. Single Value Decomposition
 
 **Single Value Decomposition (SVD)** is a mathematial process of solving a system of equations to derive a specific set of mathematical objects. One of these objects is called an eigenvector and as such, SVD is sometimes refferred to as **eigen-decomposition**.
 
 There are two cases by which we do SVD: the case where our vector set produces a non-square matrix (asymetrical) and the case where it does (symetrical).
 
-# 1. Single Value Decomposition
 ## 1.1. The Asymetrical Case
 We can apply single value decomposition theory to decompose an original vector $A$ into orthogonal vectors ($U$ and $V^T$) and a diagonal ($\Sigma$) matrix.
 
@@ -36,14 +39,30 @@ $$ v^TAv \ge 0, \ \ \ \ \ \ \ \ \  \forall v \in \mathbb R^n
 $$
 http://theanalysisofdata.com/probability/C_4.html
 
-### 1.2.2. Properties of Eigenvectors and Eigenvalues
+# 2. Eigenvalues and Eigenvectors
+
+# What Are Eigenvalues and Eigenvectors
+In mathematics, we use matrices to represent data and/or transformations of data. Matrix decomposition is the process of decomposing a matrix in such a way that the component matrices can be "put back together" to obtain the original matrix.
+
+Additionally we will see that the decomposed compontents adhere to certain properties. In the case of eigen-decomposition, the components bust exhibit features of eigenvalues and eigenvectors.
+
+In German, the prefix “eigen” means “specific of” or “characteristic of” or "proper". Eigenvectors and eigenvalues are also referred to as characteristic vectors and latent roots or characteristic equation. Initially, eigenvalues were called "Proper Values" in the United States but that term is no longer used. In more recent literature the eigenvectors have also been referred to as canonical vectors as there is a repeatable process to derive this singular set of eigenvectors.
+
+For more information consider the following sources:
+- [Linear Algebra – What are eigenvalues and eigenvectors](https://www.youtube.com/watch?v=kwA3qM0rm7c)
+- [Eigenvectors and eigenvalues | Chapter 14, Essence of linear algebra](https://www.youtube.com/watch?v=PFDu9oVAE-g)
+- *Encyclopedia of Measurement and Statistics* ~ Abdi
+- [What the Heck are Eigenvalues and Eigenvectors?](https://hubpages.com/education/What-the-Heck-are-Eigenvalues-and-Eigenvectors)
+
+
+## 2.1. Properties of Eigenvectors and Eigenvalues
 
 - They come in pairs (every eigen vector has a coresponding eigenvalue)
 - The # of pairs is equal to the # of dimensions (variables)
 - eigenvectors of covariance matrix are the directions of the orthogonal best-fit vectors with most variance
-- eigenvalues give amount of variance coresponding to each eigenvector (their square root gives the std. deviation)
+- Eigenvalues give amount of variance coresponding to each eigenvector (their square root gives the std. deviation)
 
-### 1.2.3. Applications of Eigenvalues and Eigenvectors
+## 2.2. Applications of Eigenvalues and Eigenvectors
 
 Eigenvectors appear in mechanics and physics (specifically in principal axis theory). The idea is that when linear transformation affects a vector, some vectors are only scaled while remaining on their original span. (no rotation or change of angle/direction). These special vectors are called eigenvectors and the eigenvalue is the factor by which they are stretched or squished during the transformation. In the practical case, if the transformation is a rotation, the eigenvector is the axis of rotation. The corresponding eigenvalue would be one because the axis is not stretched in the case of rotation.
 
