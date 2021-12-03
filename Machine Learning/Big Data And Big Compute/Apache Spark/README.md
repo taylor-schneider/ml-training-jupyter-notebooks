@@ -16,19 +16,19 @@ The following notebooks will get you up and running with Apache Spark.
 In these notebooks we explore the steps to get Apache Spark up and running.
 
 - [Install Apache Spark Prerequisites](Install%20Apache%20Spark%20Prerequisites.ipynb)
-- [Create A SparkContext For Locally Hosted Cluster](Create%20A%20parkContext%20For%20Locally%20Hosted%20Cluster.ipynb)
+- [Create A SparkContext For Locally Hosted Cluster](Create%20A%20SparkContext%20For%20Locally%20Hosted%20Cluster.ipynb)
 - [Create A SparkContext For Kubernetes Hosted Cluster](Create%20A%20SparkContext%20For%20Kubernetes%20Hosted%20Cluster.ipynb)
 
 ### Hello, World! Examples:
 Here we look at the basic hello worl example.
 
 - [Spark Pi - The Hello World Example For Apache spark](Spark%20Pi%20-%20The%20Hello%20World%20Example%20For%20Apache%20spark.ipynb)
-- [Running Apache Spark Locally](Running%20Apache%20Spark%20Locally.ipynb)
-- [Running Apache Spark On Kubernetes](Running%20Apache%20Spark%20On%20Kubernetes.ipynb)
+- [Running Scikit-Learn On Apache Spark](Running%20Scikit-Learn%20Apache%20Spark.ipynb)
+- [Running MLib Algorithms On Apache Spark](Running%20MLib%20Algorithms%20%28k-means%29.ipynb)
 
 ### Manipulating data on Apache Spark Cluster:
 In this series we look at how a user can interact and manipulate data in Apache Spark using techniques familiar to those using simpler python libraries like numpy and pandas.
 
-- [Intro To Koalas][Intro%20To%20Koalas.ipynb]
+- [Intro To Koalas](Intro%20To%20Koalas.ipynb)
 - [Load CSV Into Apache Spark Locally](Load%20CSV%20Into%20Apache%20Spark%20Locally.ipynb)
 - [Load CSV Into Apache Spark On Kubernetes](Load%20CSV%20Into%20Apache%20Spark%20On%20Kubernetes.ipynb)

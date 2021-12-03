@@ -1,4 +1,4 @@
-# Overview
+# Hyperopt
 
 In this directory we have notebooks which explore the fundamentals of hyperopt.
 
@@ -24,11 +24,15 @@ best_hyper_parameters = fmin(
                             other_search_parameters)
 ```
 
-It is recommended to review the material in the following order:
+It is recommended to review the foundational material in the following order:
 
-- [Hyperopt Search Spaces](Hyperopt%20Search%20Space.ipynb)
-- [Hyperopt Search Algorithms](Hyperopt%20Search%20Algorithms.ipynb)
-- [Hyperopt Objective Functions](Hyperopt%20Objective%20Functions.ipynb)
+- [Search Spaces](Hyperopt%20Search%20Space.ipynb)
+- [Search Algorithms](Hyperopt%20Search%20Algorithms.ipynb)
+- [Objective Functions](Hyperopt%20Objective%20Functions.ipynb)
 
+Additionally, hyperopt has some integrations which are worth exploring:
+
+- [Hyperopt Integration With Apache Spark](Hyperopt%20Spark%20Integration.ipynb)
+- [Hyperopt Integration With MLFlow](Hyperopt%20MLFlow%20Integration.ipynb)
 
 **Note**: There are some major changes/incompatabilities between versions of hyperopt. I have seen some angry notes in various points complaining about this. For the sake of avoiding this issue, take note that I am using the latest package versioned 0.2.5.
