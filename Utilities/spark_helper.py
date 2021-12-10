@@ -15,11 +15,14 @@ def determine_ip_address():
     return ip_address
     
 
-def create_spark_context(spark_app_name, docker_image, k8_master_ip):
+def create_spark_session(spark_app_name, docker_image, k8_master_ip):
     
     print("Setting SPARK_HOME")
     import os
-    os.environ['SPARK_HOME'] = "c:\\spark\\spark-3.1.1-bin-hadoop2.7"
+    if os.name == 'nt':		# running on windows
+        os.environ['SPARK_HOME'] = "c:\\spark\\spark-3.1.1-bin-hadoop2.7"
+    else:
+        os.environ['SPARK_HOME'] = "/opt/spark"
     print(os.environ['SPARK_HOME'])
     print("")
 
@@ -36,19 +39,20 @@ def create_spark_context(spark_app_name, docker_image, k8_master_ip):
     print("")
 
 
-    print("Determine IP Of Server")
+    print("Determining IP Of Server")
     ip_address = determine_ip_address()
     print("The ip was detected as: {0}".format(ip_address))
     print("")
 
-    # Set some vars to specify where the kubernetes master is
+    print("Configuring URL for kubernetes master")
     kubernetes_master_ip = k8_master_ip
     kubernetes_master_port = "6443"
     spark_master_url = "k8s://https://{0}:{1}".format(kubernetes_master_ip, kubernetes_master_port)
+    print(spark_master_url)
+    print("")
 
-    print("Create SparkContext")
-
-    # Wire up the SparkConf object
+    
+    print("Creating SparkConf Object")
     import pyspark
     sparkConf = pyspark.SparkConf()
     sparkConf.setMaster(spark_master_url)
@@ -61,17 +65,18 @@ def create_spark_context(spark_app_name, docker_image, k8_master_ip):
     sparkConf.set("spark.kubernetes.authenticate.serviceAccountName", "spark-sa")
     sparkConf.set("spark.executor.instances", "3")
     sparkConf.set("spark.executor.cores", "2")
-    sparkConf.set("spark.executor.memory", "1024m")
+    sparkConf.set("spark.executor.memory", "4096m")
+    sparkConf.set("spark.executor.memoryOverhead", "1024m")
     sparkConf.set("spark.driver.memory", "1024m")
     sparkConf.set("spark.driver.host", ip_address)
-    sparkConf.getAll()
-
-    from pyspark.sql import SparkSession
-    spark = SparkSession.builder.config(conf=sparkConf).getOrCreate()
-    sc = spark.sparkContext
-
+    sparkConf.set("spark.files.overwrite", "true")
+    print(sparkConf.getAll())
     print("")
-
-    sparkConf.getAll()
     
-    return sc
+    print("Creating SparkSession Object")
+    from pyspark.sql import SparkSession
+    spark_session = SparkSession.builder.config(conf=sparkConf).getOrCreate()
+    print("")   
+
+    print("Done!") 
+    return spark_session

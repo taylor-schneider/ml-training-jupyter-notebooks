@@ -1,7 +1,5 @@
 # Overview
-Apache Spark is an open-source, distributed processing system used for big data workloads.
-
-Spark is setup as a cluster based service which allows users to submit workloads to it through various language bindings. Users can submit code snippets to the cluster using Scala, Python, and R.
+Apache Spark is an open-source, unified, and distributed, analytics engine for large-scale data processing. It is architected as a cluster based service. Using high-level APIs provided in Java, Scala, Python and R, and an optimized engine that supports general execution graphs, users can sumbit worloads to the cluster. It also supports a rich set of higher-level tools including Spark SQL for SQL and structured data processing, MLlib for machine learning, GraphX for graph processing, and Structured Streaming for incremental computation and stream processing.
 
 # 1. History
 Originally developed at the University of California, Berkeley's AMPLab in 2009 under a BSD license, the Apache Spark codebase was later donated to the Apache Software Foundation in 2013 under the Apache 2.0 license. There have been several major iterations released with the most recent version being 3.1.
