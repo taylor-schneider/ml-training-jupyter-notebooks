@@ -7,24 +7,26 @@ Originally developed at the University of California, Berkeley's AMPLab in 2009 
 # 2. How It Works
 Spark is setup as a master/slave pattern. In Spark terminology this is a Driver/Executor respectively. These components are Java programs. They can run locally or they can run on remote machines. In our case we will run these applciations as Kubernetes Pods which will be spun up automagically.
 
-# 3. Relevant Notebooks
+To understnad more about what Spark can do and how it works see the [Overview Notebook](Apache%20Spark%20Overview.ipynb)
+
+# 3. Hands-On-Keyboard
 The following notebooks will get you up and running with Apache Spark.
 
-### Getting setup:
+## 3.1. Getting setup:
 In these notebooks we explore the steps to get Apache Spark up and running.
 
 - [Install Apache Spark Prerequisites](Install%20Apache%20Spark%20Prerequisites.ipynb)
 - [Create A SparkContext For Locally Hosted Cluster](Create%20A%20SparkContext%20For%20Locally%20Hosted%20Cluster.ipynb)
 - [Create A SparkContext For Kubernetes Hosted Cluster](Create%20A%20SparkContext%20For%20Kubernetes%20Hosted%20Cluster.ipynb)
 
-### Hello, World! Examples:
+## 3.2. Hello, World! Examples:
 Here we look at the basic hello worl example.
 
 - [Spark Pi - The Hello World Example For Apache spark](Spark%20Pi%20-%20The%20Hello%20World%20Example%20For%20Apache%20spark.ipynb)
 - [Running Scikit-Learn On Apache Spark](Running%20Scikit-Learn%20Apache%20Spark.ipynb)
 - [Running MLib Algorithms On Apache Spark](Running%20MLib%20Algorithms%20%28k-means%29.ipynb)
 
-### Manipulating data on Apache Spark Cluster:
+## 3.3. Manipulating data on Apache Spark Cluster:
 In this series we look at how a user can interact and manipulate data in Apache Spark using techniques familiar to those using simpler python libraries like numpy and pandas.
 
 - [Intro To Koalas](Intro%20To%20Koalas.ipynb)
