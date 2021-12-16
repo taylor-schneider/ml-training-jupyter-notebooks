@@ -15,7 +15,36 @@ def determine_ip_address():
     return ip_address
     
 
-def create_spark_session(spark_app_name, docker_image, k8_master_ip):
+def create_spark_context(spark_master_url, spark_app_name, docker_image, ip_address=None):
+    
+    if ip_address is None:
+        print("Determining IP Of Server")
+        ip_address = determine_ip_address()
+        print("The ip was detected as: {0}".format(ip_address))
+        print("")
+    
+    print("Creating SparkConf Object")
+    import pyspark
+    sparkConf = pyspark.SparkConf()
+    sparkConf.setMaster(spark_master_url)
+    sparkConf.setAppName(spark_app_name)
+    sparkConf.set("spark.submit.deploy.mode", "cluster")
+    sparkConf.set("spark.kubernetes.container.image", docker_image) 
+    sparkConf.set("spark.kubernetes.namespace", "spark")
+    sparkConf.set("spark.kubernetes.pyspark.pythonVersion", "3")
+    sparkConf.set("spark.kubernetes.authenticate.driver.serviceAccountName", "spark-sa")
+    sparkConf.set("spark.kubernetes.authenticate.serviceAccountName", "spark-sa")
+    sparkConf.set("spark.executor.instances", "3")
+    sparkConf.set("spark.executor.cores", "2")
+    sparkConf.set("spark.executor.memory", "4096m")
+    sparkConf.set("spark.executor.memoryOverhead", "1024m")
+    sparkConf.set("spark.driver.memory", "1024m")
+    sparkConf.set("spark.driver.host", ip_address)
+    sparkConf.set("spark.files.overwrite", "true")
+    
+    return sparkConf
+    
+def create_spark_session(spark_app_name, docker_image, k8_master_ip, spark_context=None):
     
     print("Setting SPARK_HOME")
     import os
@@ -38,12 +67,6 @@ def create_spark_session(spark_app_name, docker_image, k8_master_ip):
     print(os.environ['PYSPARK_PYTHON'])
     print("")
 
-
-    print("Determining IP Of Server")
-    ip_address = determine_ip_address()
-    print("The ip was detected as: {0}".format(ip_address))
-    print("")
-
     print("Configuring URL for kubernetes master")
     kubernetes_master_ip = k8_master_ip
     kubernetes_master_port = "6443"
@@ -51,26 +74,11 @@ def create_spark_session(spark_app_name, docker_image, k8_master_ip):
     print(spark_master_url)
     print("")
 
+    sparkConf = create_spark_context(spark_master_url, spark_app_name, docker_image)
     
-    print("Creating SparkConf Object")
-    import pyspark
-    sparkConf = pyspark.SparkConf()
-    sparkConf.setMaster(spark_master_url)
-    sparkConf.setAppName(spark_app_name)
-    sparkConf.set("spark.submit.deploy.mode", "cluster")
-    sparkConf.set("spark.kubernetes.container.image", docker_image) 
-    sparkConf.set("spark.kubernetes.namespace", "spark")
-    sparkConf.set("spark.kubernetes.pyspark.pythonVersion", "3")
-    sparkConf.set("spark.kubernetes.authenticate.driver.serviceAccountName", "spark-sa")
-    sparkConf.set("spark.kubernetes.authenticate.serviceAccountName", "spark-sa")
-    sparkConf.set("spark.executor.instances", "3")
-    sparkConf.set("spark.executor.cores", "2")
-    sparkConf.set("spark.executor.memory", "4096m")
-    sparkConf.set("spark.executor.memoryOverhead", "1024m")
-    sparkConf.set("spark.driver.memory", "1024m")
-    sparkConf.set("spark.driver.host", ip_address)
-    sparkConf.set("spark.files.overwrite", "true")
-    print(sparkConf.getAll())
+    import pprint
+    for item in sparkConf.getAll():
+        print(item)
     print("")
     
     print("Creating SparkSession Object")
