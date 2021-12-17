@@ -1,7 +1,12 @@
+import os
+import netifaces
+import re
+import pyspark
+
+
 def determine_ip_address():
     # Determine the ip address of the machine
-    import netifaces
-    import re
+
     nic_uuid = netifaces.gateways()['default'][netifaces.AF_INET][1]
     nic_details = netifaces.ifaddresses(nic_uuid)
     ip_address = None
@@ -13,8 +18,38 @@ def determine_ip_address():
     if not ip_address:
         raise Exception("Unable to determine ip address.")
     return ip_address
-    
 
+
+def get_filesystem_root():
+    if os.name == 'nt':
+        return os .path.abspath('.').split(os.path.sep)[0] + os.path.sep
+    else:
+        return '/'
+
+    
+def link_data_dir_to_root(data_dir):
+    data_dir = os.path.abspath(data_dir)
+    for filename in os.listdir(data_dir):
+        # Check if file is linked
+        if not os.path.exists("/{0}".format(filename)):
+            src = os.path.join(data_dir, filename)
+            dest = os.path.join(get_filesystem_root(), filename)
+            print("Creating Symlink: {0} -> {1}".format(src, dest))
+            os.symlink(src, dest)
+
+            
+def unlink_data_dir_from_root(data_dir):
+    data_dir = os.path.abspath(data_dir)
+    for filename in os.listdir(data_dir):
+        # Check if file is linked
+        if os.path.exists("/{0}".format(filename)):
+            src = os.path.join(data_dir, filename)
+            dest = os.path.join(get_filesystem_root(), filename)
+            if os.path.islink(dest):
+                print("Removing Symlink: {0} -> {1}".format(src, dest))
+                os.unlink(dest)
+
+                
 def create_spark_context(spark_master_url, spark_app_name, docker_image, ip_address=None):
     
     if ip_address is None:
@@ -24,7 +59,6 @@ def create_spark_context(spark_master_url, spark_app_name, docker_image, ip_addr
         print("")
     
     print("Creating SparkConf Object")
-    import pyspark
     sparkConf = pyspark.SparkConf()
     sparkConf.setMaster(spark_master_url)
     sparkConf.setAppName(spark_app_name)
@@ -41,9 +75,10 @@ def create_spark_context(spark_master_url, spark_app_name, docker_image, ip_addr
     sparkConf.set("spark.driver.memory", "1024m")
     sparkConf.set("spark.driver.host", ip_address)
     sparkConf.set("spark.files.overwrite", "true")
-    
+    sparkConf.set("spark.files.useFetchCache", "false")
     return sparkConf
-    
+
+
 def create_spark_session(spark_app_name, docker_image, k8_master_ip, spark_context=None):
     
     print("Setting SPARK_HOME")
