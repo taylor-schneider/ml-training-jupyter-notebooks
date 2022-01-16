@@ -83,10 +83,10 @@ def create_spark_session(spark_app_name, docker_image, k8_master_ip, spark_conte
     
     print("Setting SPARK_HOME")
     import os
-    if os.name == 'nt':		# running on windows
+    if os.name == 'nt': # running on windows
         os.environ['SPARK_HOME'] = "c:\\spark\\spark-3.1.1-bin-hadoop2.7"
-    else:
-        os.environ['SPARK_HOME'] = "/opt/spark"
+    else: # running on linux
+        os.environ['SPARK_HOME'] = "/usr/lib/spark-3.1.1-bin-hadoop2.7"
     print(os.environ['SPARK_HOME'])
     print("")
 
@@ -98,7 +98,7 @@ def create_spark_session(spark_app_name, docker_image, k8_master_ip, spark_conte
     print("")
 
     print("Setting PYSPARK_PYTHON")
-    os.environ['PYSPARK_PYTHON'] = "/usr/bin/python3"
+    os.environ['PYSPARK_PYTHON'] = "/usr/local/bin/python3"
     print(os.environ['PYSPARK_PYTHON'])
     print("")
 
