@@ -3,6 +3,9 @@ import pandas
 import numpy 
 import matplotlib.pyplot as pyplot
 
+def print_hello():
+    print("Hello, World!")
+
 # Define a utility function to plot a dataframe
 def plot_dataframe(dataframe1, x_axis_name, y_axis_name, scatter=True, line=False):
     

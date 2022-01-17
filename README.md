@@ -8,15 +8,8 @@ This repository is broken down into a number of topics; some of which are overla
 
 As mentioned earlier, I am working in python 3+. Each notebook list the respective prerequisites.
 
-Following this train of thought, I suggest reviewing the materials in the following order:
+I have prepared a requirements.txt file to list out the packages and versions I am using. I also provide the setup.py file to install these requirements and the utilities hosted in the *Utilities/* directory.
 
-- Overview Of The Machine Learning
-- Define Problem and Solution Requirements
-- Identify Data Sources and Data Structure
-- Extract Transform and Load (ETL)
-- Exploratory Data Analysis (EDA)
-- Choose And Calibrate A Model
-- Make Predictions
-- Evaluate And Adjust (EDA ->)
+To see how to use this setup.py file, read the [Environment Setup Notebook](EnvironmentSetup.ipynb)
 
 
