@@ -40,6 +40,7 @@ def run_server(port, web_root, debug=False):
     def upload_file(path):
         x = request
         file_path = request.path
+        file_path = urllib.parse.unquote(file_path)
         full_file_path = os.path.join(web_root, file_path.strip("/"))
         file_data = request.data
 
@@ -69,6 +70,7 @@ def run_server(port, web_root, debug=False):
     @app.route('/<path:path>', methods=['DELETE'])
     def delete_file(path):
         file_path = request.path
+        file_path = urllib.parse.unquote(file_path)
         full_file_path = os.path.join(web_root, file_path.strip("/"))
         logging.info("Delete {0}".format(full_file_path))
 
