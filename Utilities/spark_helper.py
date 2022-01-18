@@ -50,7 +50,7 @@ def unlink_data_dir_from_root(data_dir):
                 os.unlink(dest)
 
                 
-def create_spark_context(spark_master_url, spark_app_name, docker_image, ip_address=None):
+def create_spark_conf(spark_master_url, spark_app_name, docker_image, ip_address=None):
     
     if ip_address is None:
         print("Determining IP Of Server")
@@ -109,7 +109,7 @@ def create_spark_session(spark_app_name, docker_image, k8_master_ip, spark_conte
     print(spark_master_url)
     print("")
 
-    sparkConf = create_spark_context(spark_master_url, spark_app_name, docker_image)
+    sparkConf = create_spark_conf(spark_master_url, spark_app_name, docker_image)
     
     import pprint
     for item in sparkConf.getAll():
@@ -123,3 +123,40 @@ def create_spark_session(spark_app_name, docker_image, k8_master_ip, spark_conte
 
     print("Done!") 
     return spark_session
+
+
+def update_file_on_worker(file_url):
+        
+    # Determine the hostname of the current worker node
+    import socket
+    hostname = socket.gethostname()
+
+    # Create a message to inform the driver what has happened
+    update_result = hostname + " -> "
+    
+    # Determine the name of the file
+    import urllib.parse as parse
+    file_name = os.path.basename(parse.urlparse(file_url).path)
+    
+    # Delete the file if it exits
+    local_file_path = "/{0}".format(file_name)
+    if os.path.exists(local_file_path):
+        update_result += "Deleted. "
+        os.remove(local_file_path)
+     
+    # Determine the file name
+    import urllib.parse as parse
+    file_name = os.path.basename(parse.urlparse(file_url).path)
+    
+    # Download the file
+    import urllib.request as urllib
+    urllib.urlretrieve(file_url, local_file_path)
+    
+    return update_result + "Downloaded."
+
+
+def update_file_on_workers(spark_session, file_url):
+    
+    worker_count = int(spark_session.sparkContext.getConf().get('spark.executor.instances'))
+    rdd = spark_session.sparkContext.parallelize(range(worker_count)).map(lambda var: update_file_on_worker(file_url))
+    return rdd.collect()

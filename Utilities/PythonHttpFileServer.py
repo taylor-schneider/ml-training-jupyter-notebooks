@@ -26,7 +26,7 @@ import os
 import pathlib
 import shutil
 import logging
-
+import urllib.parse
 
 def run_server(port, web_root, debug=False):
     
@@ -57,6 +57,7 @@ def run_server(port, web_root, debug=False):
     @app.route('/<path:path>', methods=['GET'])
     def get_file(path):
         file_path = request.path
+        file_path = urllib.parse.unquote(file_path)
         full_file_path = os.path.join(web_root, file_path.strip("/"))
         file_contents = None
         logging.info("Get {0}".format(full_file_path))
