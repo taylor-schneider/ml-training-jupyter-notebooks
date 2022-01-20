@@ -27,7 +27,7 @@ def get_filesystem_root():
         return '/'
 
     
-def link_data_dir_to_root(data_dir):
+def symlink_dir_to_root(data_dir):
     data_dir = os.path.abspath(data_dir)
     for filename in os.listdir(data_dir):
         # Check if file is linked
@@ -38,7 +38,7 @@ def link_data_dir_to_root(data_dir):
             os.symlink(src, dest)
 
             
-def unlink_data_dir_from_root(data_dir):
+def unlink_dir_from_root(data_dir):
     data_dir = os.path.abspath(data_dir)
     for filename in os.listdir(data_dir):
         # Check if file is linked
@@ -125,6 +125,17 @@ def create_spark_session(spark_app_name, docker_image, k8_master_ip, spark_conte
     return spark_session
 
 
+def file_added_to_spark(file_name):
+    
+    import os
+    from  pyspark import SparkFiles
+    file_path = SparkFiles.get(file_name)
+    if os.path.exists(file_path):
+        return True
+    else:
+        return False
+
+
 def update_file_on_worker(file_url):
         
     # Determine the hostname of the current worker node
@@ -149,14 +160,30 @@ def update_file_on_worker(file_url):
     file_name = os.path.basename(parse.urlparse(file_url).path)
     
     # Download the file
-    import urllib.request as urllib
-    urllib.urlretrieve(file_url, local_file_path)
+    import urllib.request
+    urllib.request.urlretrieve(file_url, local_file_path)
     
     return update_result + "Downloaded."
 
 
-def update_file_on_workers(spark_session, file_url):
-    
+def add_file_to_cluster(spark_session, file_url):
+    if file_added_to_spark:
+        print("Updating file on driver.")
+        import os
+        import urllib.parse as parse
+        file_name = os.path.basename(parse.urlparse(file_url).path)
+        import pyspark
+        local_file_path = pyspark.SparkFiles.get(file_name)
+        if os.path.exists(local_file_path):
+            os.remove(local_file_path)
+        import urllib.request
+        urllib.request.urlretrieve(file_url, local_file_path)
+    else:
+        print("Adding file to driver.")
+        spark_session.sparkContext.addFile(file_url)
+    print("Updating file on workers:")
     worker_count = int(spark_session.sparkContext.getConf().get('spark.executor.instances'))
     rdd = spark_session.sparkContext.parallelize(range(worker_count)).map(lambda var: update_file_on_worker(file_url))
-    return rdd.collect()
+    results = rdd.collect()
+    for result in results:
+        print(result)
