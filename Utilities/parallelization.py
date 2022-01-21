@@ -81,7 +81,7 @@ class EnhancedThreadPool():
     # The main thread will block and update a progress bar as the functions complete
     # It will return a result set once all the processes have finished or an
     # error has been encountered.
-    def parralelize(self, func, arg_set, kwarg_set):
+    def parallelize(self, func, arg_set, kwarg_set):
         
         # Setup vars to help kick off parallelization
         num_ops = len(arg_set)
@@ -201,7 +201,7 @@ class EnhancedProcessPool():
     # The main thread will block and update a progress bar as the functions complete
     # It will return a result set once all the processes have finished or an
     # error has been encountered.
-    def parralelize(self, func, arg_set, kwarg_set):
+    def parallelize(self, func, arg_set, kwarg_set):
         
         # Setup vars to help kick off parallelization
         num_ops = len(arg_set)

@@ -33,4 +33,6 @@ In this series we look at how a user can interact and manipulate data in Apache 
 - [Load CSV Into Apache Spark Locally](Load%20CSV%20Into%20Apache%20Spark%20Locally.ipynb)
 - [Load CSV Into Apache Spark On Kubernetes](Load%20CSV%20Into%20Apache%20Spark%20On%20Kubernetes.ipynb)
 
+Note: In the notebooke about loading a CSV on spark running on kubernetes we also look at adding code files to the cluster. This is helpful in some more advanced cases.
+
 ## 3.4. Parallelization
