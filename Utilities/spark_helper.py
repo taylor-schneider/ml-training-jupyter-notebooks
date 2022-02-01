@@ -5,8 +5,8 @@ import pyspark
 
 
 def determine_ip_address():
+    
     # Determine the ip address of the machine
-
     nic_uuid = netifaces.gateways()['default'][netifaces.AF_INET][1]
     nic_details = netifaces.ifaddresses(nic_uuid)
     ip_address = None
