@@ -10,7 +10,9 @@ Spark is setup as a master/slave pattern. In Spark terminology this is a Driver/
 To understnad more about what Spark can do and how it works see the [Overview Notebook](Apache%20Spark%20Overview.ipynb)
 
 # 3. Hands-On-Keyboard
-The following notebooks will get you up and running with Apache Spark.
+The following notebooks will get you up and running with Apache Spark. 
+
+Before we begin, I cannot stress this enough: kubernetes is very sensitive to version information. We are running v1.21.9.
 
 ## 3.1. Getting setup:
 In these notebooks we explore the steps to get Apache Spark up and running.
