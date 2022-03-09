@@ -7,7 +7,9 @@ Originally developed at the University of California, Berkeley's AMPLab in 2009 
 # 2. How It Works
 Spark is setup as a master/slave pattern. In Spark terminology this is a Driver/Executor respectively. These components are Java programs. They can run locally or they can run on remote machines. In our case we will run these applciations as Kubernetes Pods which will be spun up automagically.
 
-To understnad more about what Spark can do and how it works see the [Overview Notebook](Apache%20Spark%20Overview.ipynb)
+To understand more about what Spark can do and how it works see this [Overview Notebook](Overview%20Apache%20Spark.ipynb)
+
+To understand how spark is deployed on kubernetes we can see this [Overview Notebook](Overview%20Running%20Apache%20Spark%20On%20Kubernetes.ipynb)
 
 # 3. Hands-On-Keyboard
 The following notebooks will get you up and running with Apache Spark. 
