@@ -73,7 +73,7 @@ def create_spark_conf(spark_master_url, spark_app_name, docker_image, ip_address
     sparkConf.set("spark.kubernetes.authenticate.serviceAccountName", "spark-sa")
     sparkConf.set("spark.executor.instances", "3")
     sparkConf.set("spark.executor.cores", "2")
-    sparkConf.set("spark.executor.memory", "6114m")
+    sparkConf.set("spark.executor.memory", "6144m")
     sparkConf.set("spark.executor.memoryOverhead", "1024m")
     sparkConf.set("spark.driver.memory", "3072m")
     sparkConf.set("spark.driver.host", ip_address)

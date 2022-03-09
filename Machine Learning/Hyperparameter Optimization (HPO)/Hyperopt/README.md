@@ -38,5 +38,5 @@ Additionally, hyperopt has some integrations which are worth exploring:
 - [Hyperopt Integration With Apache Spark](Hyperopt%20Spark%20Integration.ipynb)
 - [Hyperopt Integration With MLFlow](Hyperopt%20MLFlow%20Integration.ipynb)
 
-# Important Note On Version
+# Important Note On Hyperopt Versioning
 **Note**: There are some major changes/incompatabilities between versions of hyperopt. I have seen some angry notes in various points complaining about this. I have also experienced som undocumented breaking changes hen switching between 0.2.5 and 0.2.7. For the sake of avoiding this issue, take note that I am using the latest package versioned 0.2.7.
