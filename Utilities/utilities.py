@@ -2,6 +2,12 @@
 import pandas
 import numpy 
 import matplotlib.pyplot as pyplot
+import pyprojroot
+import os
+
+def print_hello():
+    print("Hello, World!")
+
 
 # Define a utility function to plot a dataframe
 def plot_dataframe(dataframe1, x_axis_name, y_axis_name, scatter=True, line=False):
@@ -45,6 +51,7 @@ def convert_date_string_to_date(input_string):
 
     return result
 
+
 def calculate_moving_mean_and_std(dataframe, column_name):
     
     # Add a mean and variance column to the dataframe
@@ -59,7 +66,8 @@ def calculate_moving_mean_and_std(dataframe, column_name):
         x += 1
         
     return pandas.DataFrame({"mean": mean, "std": std, "date": dataframe["date"]}, index=dataframe.index)
-	
+
+
 def plot_moving_mean_and_std_for_dataframes(dataframe, x_axis_name, axis):
         
     # Graph the mean and std
@@ -69,3 +77,11 @@ def plot_moving_mean_and_std_for_dataframes(dataframe, x_axis_name, axis):
     
     # Beautify the x-labels
     pyplot.gcf().autofmt_xdate()
+
+
+def get_project_root_dir():
+    return pyprojroot.here()
+
+
+def get_data_dir():
+    return os.path.join(get_project_root_dir(), "Example Data Sets")
