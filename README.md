@@ -8,8 +8,7 @@ This repository is broken down into a number of topics; some of which are overla
 
 If you are brand new to ML and want to put hands on keyboard I would suggest consuming the materials in the following order:
 - [Foundational Data Structures](Data%20Engineering/Foundational%20Data%20Structures/Introduction%20To%20Python%20Data%20Structures%20For%20Data%20Science.ipynb) - Without this we cannot do anything without data structures
-
--[Machine Learning]() - Looking at the algorithms with hands on keyboard.
+- [Machine Learning]() - Looking at the algorithms with hands on keyboard.
 
 ## Installing Required Libraries
 
