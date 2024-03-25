@@ -32,7 +32,7 @@ Language Models have been developing for decades. Most efforts date back to the 
 
 When I have some more time, I would like to fill in this timeline more intentially and completely. For now, the timelines I have observed are documented in their respective notebooks (outlined below).
 
-I have also bookmarked the following articles to read at a later date:
+I have also bookmarked the following articles to read at a later date.
 
 * *[Foote (2023) A Brief History of Large Language Models](https://www.dataversity.net/a-brief-history-of-large-language-models/)*
 * *[Weber (2003) A Brief History of Large Language Models](https://www.linkedin.com/pulse/brief-history-large-language-models-bob/)*
