@@ -20,11 +20,11 @@ The earliest reference I could find to the term came from [Chelba et. al (2012)]
 
 The term "large" is used to describe and differentiate a class of LLMs by the number of parameters it uses. There is no strict cutoff for what makes a language model lerge. There appears to be a public concensus that LLMs consist of at billions parameters (as mentioned [here](https://www.techtarget.com/whatis/definition/large-language-model-LLM) and [here](https://arxiv.org/abs/2303.18223).
 
-# Controversy Regarding AI
+# Controversy Regarding Use Of Term "AI"
 
 While the industry currently used the term AI or Generative AI to refer to LLMS, many researchers reject this characterization as they do not consider LLMs to posess any artificial inteligence. Instead, they consider LLMs to simply be probablistic models capable of stiching together plausable linguistic structures according to rules observed from the training set. 
 
-Emily Bender for example has written several papers on the subject and even referred to LLMs as "Stochastic Parrots" to highlight her beliefs.
+Emily Bender for example has written several well known papers on the subject which in turn refer to LLMs as "Stochastic Parrots" to highlight her concurrence with these beliefs.
 
 # History
 
@@ -43,7 +43,7 @@ My approach to digesting this material is to take a holistic approach by underst
 
 LLMs are built on decades of preceeding work and rely on techniques and terminology spanning multiple disciplines. To obtain an intuitive understanding of the field as it is today, I belive one must have a historical understanding.
 
-I would reccomend first consulting the notebooks on [Topic Modeling](Topic%20Modeling.ipynb), [Encoder-Decoders](Encoder and [Word Embeddings](Word%20Embeddings.ipynb). 
+I would reccomend first consulting the notebooks on [Topic Modeling](Topic%20Modeling.ipynb), [Encoder-Decoders](Encoder-Decoders.ipynb) and [Word Embeddings](Word%20Embeddings.ipynb). 
 
 It is my understanding, that as these fields converged, Neural Networks became the preferred means of constructing a language model. 
 
