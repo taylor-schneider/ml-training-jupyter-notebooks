@@ -14,7 +14,7 @@ Like any machine learning language, a language model is trained on a sample data
 
 This directory contains several notebooks with information pertaining to Large Language Models (LLMs). The purpose of this information is to provide the neccessary prerequisite information to evaluate competing technologies and get hands on with specific implimentations. More information on how to consume this material is provided below.
 
-# Origin Of The Term
+# Origin Of The Term LLM
 
 The earliest reference I could find to the term came from [Chelba et. al (2012)](https://arxiv.org/abs/1210.8440) who were working at Google to improve search results for YouTube.
 
@@ -30,7 +30,7 @@ Emily Bender for example has written several well known papers on the subject wh
 
 Language Models have been developing for decades. Most efforts date back to the 50s and 60s depending on the applciations.
 
-When I have some more time, I would like to fill in this timeline more intentially and completely. For now, the timelines I have observed are documented in their respective notebooks (outlined below).
+When I have some more time, I would like to fill in this timeline more intentionally and completely. For now, the timelines I have observed are documented in their respective notebooks (outlined below).
 
 I have also bookmarked the following articles to read at a later date.
 
@@ -50,5 +50,7 @@ It is my understanding, that as these fields converged, Neural Networks became t
 Then around 2014, as discussed in the [Attention](Attention.ipynb) notebook, we see attention aleviating physical bottlenecks.
 
 Finally in 2017 we see the birth of the Transformer which is the classical implimentation of a Large Language Model. This model is explored in the [Transformers][Transformers.ipynb]. Since the publication of the Transformer we see many new variants and applications explode into the marketplace.
+
+As the Transformer architecture started dominating and LLMs continued to scale we see [Prompt Engineering](Prompt%20Engineering.ipynb) come into focus as an accepted aspect of the GenAI SDLC. [Emergent Abilities](Prompt%20Engineering.ipynb#Emergent-Abilities), [Testing Strategies](Testing%20Strategies.ipynb) and many other topics become relevant new challenges to the data science teams. Tools and ecosystems, like [LangChain](Prompt%20Engineering.ipynb#LangChain-Ecosystem), also popped up as a reactionary force to meet user demand for standardized workflow orchestration and solution templating consistent with traditional DevOps practices.
 
 Each of these notebooks link to eachother as well as many other notebooks with related information.
