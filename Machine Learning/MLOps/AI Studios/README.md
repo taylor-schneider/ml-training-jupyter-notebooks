@@ -1,10 +1,5 @@
-docs.n8n.io
-Zapier?
-autogen studio
-LM Studio
-Textgen web ui
-
-# Basic Idea
+# Overview
+This directory contains a review and comparison of several AI Studios on the market.
 
 # Key Features
 - Drag and drop UI
@@ -14,7 +9,14 @@ Textgen web ui
 - Solution simplicity
 - RBAC (accessing info / executing workflows)
 
+# Comparison
 
+# Compared Products
+Zapier?
+autogen studio
+LM Studio
+Textgen web ui
+SmythOS
 
 # Architecture Questions
 - how does it scale
