@@ -1,3 +1,9 @@
+**Table Of Contents:**</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Overview](#Overview)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Origin Of The Term LLM](#Origin-Of-The-Term-LLM)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[History](#History)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;[How To Digest This Material](#How-To-Digest-This-Material)
+
 # Overview
 
 A language model is an attempt to represent the symatic nature of a language, or languages, in a form that can be used to perform various natural language processing (NLP) tasks such as:
