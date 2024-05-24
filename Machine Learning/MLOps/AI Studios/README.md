@@ -18,6 +18,7 @@ The various offerings were compared against the following criteria:
 - **Supported Frameworks** - A list of supported AI frameworks
 - **Scalable** - An indication of whether or not the solution can be scaled
 - **Service Provisioning** - An indication of whether or not the solution will provision services consumed by the orchestrated workflows
+- **Portable** - An indication of how easy the solution can be imported/exported from the tool and run without the AI studio
 - **Complete Documentation** - An indication of whether or not the documentation is completed and helpful
 - **License** - A list of applicable software licenses
 - **FOSS** - An indication of whether the software is free and open source
@@ -37,7 +38,11 @@ The various offerings were compared against the following criteria:
 
 # Reccomendations
 
-Based on my experiences with the tools I would reccomend using either n8n or FlowiseAI depending on the use case. I think n8n offers the most sophistication in terms of workflow automation. I think Flowise supports a larger set of frameworks out of the box.
+Based on my experiences with the tools I would reccomend using LangFlow. I think it offers the best feature set and most portability. 
+
+If FlowiseAI is able to match the portability and closes the open feature request I would also reccomend that tool as it also supports LlamaIndex natively.
+
+The AutoGen Studio licensing is a red flag in my humble opinion and the n8n solution has no plans to offer an SDK which is also concerning.
 
 # Closed Source Products (Not Reviewed)
 - SmythOS
