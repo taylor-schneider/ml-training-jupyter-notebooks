@@ -55,7 +55,7 @@ It is my understanding, that as these fields converged, Neural Networks became t
 
 Then around 2014, as discussed in the [Attention](Attention.ipynb) notebook, we see attention aleviating physical bottlenecks.
 
-Finally in 2017 we see the birth of the Transformer which is the classical implimentation of a Large Language Model. This model is explored in the [Transformers][Transformers.ipynb]. Since the publication of the Transformer we see many new variants and applications explode into the marketplace.
+Finally in 2017 we see the birth of the Transformer which is the classical implimentation of a Large Language Model. This model is explored in the [Transformers](Transformers.ipynb). Since the publication of the Transformer we see many new variants and applications explode into the marketplace.
 
 As the Transformer architecture started dominating and LLMs continued to scale we see [Prompt Engineering](Prompt%20Engineering.ipynb) come into focus as an accepted aspect of the GenAI SDLC. [Emergent Abilities](Prompt%20Engineering.ipynb#Emergent-Abilities), [Testing Strategies](Testing%20Strategies.ipynb) and many other topics become relevant new challenges to the data science teams. Tools and ecosystems, like [LangChain](Prompt%20Engineering.ipynb#LangChain-Ecosystem), also popped up as a reactionary force to meet user demand for standardized workflow orchestration and solution templating consistent with traditional DevOps practices.
 
